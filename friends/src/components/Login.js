@@ -1,6 +1,6 @@
 import React, { useHistory } from 'react';
 import axios from 'axios';
-
+import axiosWithAuth from '../utils/axiosWithAuth';
 class Login extends React.Component {
   state = {
     credentials: {
@@ -22,8 +22,9 @@ class Login extends React.Component {
   login = e => {
     e.preventDefault();
     //1. axios call http://localhost:5000/api/login pass in username and password through the body
-
-    axios.post('http://localhost:5000/api/login', this.state.credentials)
+    axiosWithAuth()
+   
+    .post('/api/login', this.state.credentials)
       .then(resp=> {
         //2. if the call is successful: save token in localStorage
         localStorage.setItem('token', resp.data.token);

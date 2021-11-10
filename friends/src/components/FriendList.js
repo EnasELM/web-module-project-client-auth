@@ -16,7 +16,7 @@ class FriendList extends React.Component {
       .then(resp=> {
         this.setState({
           ...this.state,
-          friend: resp.data.data
+          friend: resp.data.friends
         });
       })
       .catch(err=> {
