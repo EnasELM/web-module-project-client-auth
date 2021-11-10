@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-//import { Link } from 'react-router-dom';
+
 import { Switch, Link } from 'react-router';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 import FriendList from './components/FriendList';
@@ -23,9 +23,7 @@ function App() {
         <li>
           <Link to="/login">Login</Link>
         </li>
-        <li>
-          hhhhhhhhhhhhhhhhhh
-        </li>
+        
         <li>
           <Link to="/logout">Logout</Link>
         </li>
@@ -34,14 +32,15 @@ function App() {
         </li>
         <li>
           {isLoggedIn && <div>
-              <Link to="/protected">Protected Page</Link>
+              <Link to="/friends/add-new">Add Fiends </Link>
               <p>Welcome to the page: {username}</p>
             </div>
           }
         </li>
       </ul>
       <Switch>
-        <PrivateRoute exact path="/protected" component={FriendList} />
+        <PrivateRoute exact path="/friends/add-new" component={AddFriendForm} />
+        <PrivateRoute exact path="/friends" component={FriendList} />
         {/* <Route exact path="/protected" component={GasPrices} /> */}
         <Route path="/logout" component={Logout} />
         <Route path="/login" component={Login} />
