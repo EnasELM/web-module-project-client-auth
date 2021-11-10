@@ -8,13 +8,13 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 import PrivateRoute from './components/PrivateRoute';
 import axiosWithAuth from './utils/axiosWithAuth';
-
+import AddFriendForm from './components/AddFriendForm';
 
 
 function App() {
-  const isLoggedIn = localStorage.getItem('token');
-  const role = localStorage.getItem('role');
-  const username = localStorage.getItem('username');
+ 
+  
+ 
   return (
     
     <Router>
@@ -27,15 +27,13 @@ function App() {
         <li>
           <Link to="/logout">Logout</Link>
         </li>
+        
         <li>
-          {(role === 'admin' && isLoggedIn) && <Link to="/logout">Admin</Link> }
-        </li>
-        <li>
-          {isLoggedIn && <div>
+         
               <Link to="/friends/add-new">Add Fiends </Link>
-              <p>Welcome to the page: {username}</p>
-            </div>
-          }
+              <Link to="/friends">Hello Fiends </Link>
+            
+          
         </li>
       </ul>
       <Switch>
